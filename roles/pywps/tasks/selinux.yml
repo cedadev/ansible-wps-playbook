@@ -4,6 +4,11 @@
     policy: targeted
     state: enforcing
 
+- name: Install policycoreutils-python-utils package (required for next task)
+  yum:
+    name: policycoreutils-python-utils
+    state: present
+
 - name: Allow nginx to modify access socket files in /var/run/pywps
   community.general.sefcontext:
     target: '/var/run/pywps(/.*)?'
