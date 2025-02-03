@@ -42,6 +42,8 @@
       wps_webservice_enabled: true
     - name: roocs
       when: roocs_enabled
+    - name: flamingo
+      when: flamingo_enabled
 
 - name: Install a PyWPS worker
   hosts: worker
@@ -62,3 +64,5 @@
       wps_webservice_enabled: false
     - name: roocs
       when: roocs_enabled
+    - name: flamingo
+      when: flamingo_enabled
