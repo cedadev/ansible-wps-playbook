@@ -33,3 +33,15 @@
     createhome: no
     home: "{{ service_user_home }}"
   when: service_add_user
+
+- name: Create required directories (needed before nginx runs)
+  file:
+    path: "/var/lib/pywps/{{ item }}"
+    state: directory
+    owner: "{{ service_user }}"
+    group: "{{ service_group }}"
+  loop:
+    - ".config"
+    - "cache"
+    - ".local"
+

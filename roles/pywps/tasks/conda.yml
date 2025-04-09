@@ -1,8 +1,10 @@
 ---
+
 - name: Remove Conda environment.
   command: "{{ conda_location }}/bin/conda env remove -q -y -p {{ conda_envs_dir}}/{{ item.name }}"
   with_items: "{{ wps_services }}"
   ignore_errors: yes
+  when: reinstall_conda_envs
   tags:
     - pywps
     - conda
@@ -12,7 +14,7 @@
   args:
     chdir: "{{ src_dir }}/{{ item.name }}"
   with_items: "{{ wps_services }}"
-  when: not conda_env_use_spec
+  when: not conda_env_use_spec and reinstall_conda_envs
   register: conda_env
   tags:
     - pywps

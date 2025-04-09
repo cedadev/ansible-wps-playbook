@@ -1,4 +1,5 @@
 ---
+
 - name: Clone test data.
   git:
     repo: "https://github.com/roocs/mini-esgf-data.git"
