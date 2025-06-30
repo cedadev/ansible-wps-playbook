@@ -12,7 +12,7 @@
        - null.yml
   roles:
     - common
-    - role: miniforge
+    - role: andrewrothstein.miniconda
       tags:
         conda
     - role: supervisor
@@ -51,7 +51,7 @@
        - null.yml
   roles:
     - common
-    - role: miniforge
+    - role: andrewrothstein.miniconda
       tags:
         conda
     - name: pywps

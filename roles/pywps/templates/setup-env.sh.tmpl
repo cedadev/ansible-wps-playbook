@@ -1,0 +1,11 @@
+if [ ! "$1" ] ; then
+    echo "[ERROR] provide name of WPS as only argument!"
+else
+    wps=$1
+    source /usr/local/anaconda/bin/activate
+    conda activate $wps
+    cd /usr/local/src/$wps
+fi
+
+
+
