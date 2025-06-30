@@ -11,7 +11,9 @@
        - custom.yml
        - null.yml
   roles:
-    - common
+    - role: common
+      tags: 
+        common
     - role: andrewrothstein.miniconda
       tags:
         conda
@@ -30,8 +32,12 @@
         db
     - role: slurm
       when: slurm_enabled
+      tags:
+        slurm
     - role: galaxyproject.slurm
       when: slurm_enabled
+      tags:
+        slurm
     - name: pywps
       wps_webservice_enabled: true
     - name: roocs
@@ -50,7 +56,9 @@
        - custom.yml
        - null.yml
   roles:
-    - common
+    - role: common
+      tags: 
+        common
     - role: andrewrothstein.miniconda
       tags:
         conda
@@ -60,7 +68,11 @@
       when: roocs_enabled
     - role: slurm
       when: slurm_enabled
+      tags:
+        slurm
     - role: galaxyproject.slurm
       when: slurm_enabled
+      tags:
+        slurm
         #    - name: flamingo
         #      when: flamingo_enabled
