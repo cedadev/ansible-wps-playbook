@@ -100,6 +100,7 @@ gunicorn_timeout: 30
 
 # postgres
 # https://github.com/geerlingguy/ansible-role-postgresql
+override_postgres: true
 postgresql_restarted_state: "restarted"
 postgresql_service_state: "started"
 postgresql_service_enabled: true
@@ -114,6 +115,16 @@ postgresql_users:
     encrypted: yes  # encryption necessary for postgres>=10.0.
 # postgresql_hba_entries: []
 
+postgresql_version: "16"
+postgresql_packages:
+  - "postgresql{{ postgresql_version }}"
+  - "postgresql{{ postgresql_version }}-server"
+  - "postgresql{{ postgresql_version }}-contrib"
+postgresql_data_dir: "/var/lib/pgsql/{{ postgresql_version }}/data"
+postgresql_config_path: "{{ postgresql_data_dir }}"
+postgresql_bin_path: "/usr/pgsql-{{ postgresql_version }}/bin"
+postgresql_daemon: "postgresql-16"
+
 # cron
 cron_enabled: false
 cron_disabled: "{{ cron_enabled | bool == false }}"
@@ -122,7 +133,8 @@ cron_user: root
 
 # selinux
 # https://docs.ansible.com/ansible/latest/collections/community/general/sefcontext_module.html
-selinux_enabled: true
+selinux_enabled: false
+#true
 
 # roocs
 roocs_enabled: false

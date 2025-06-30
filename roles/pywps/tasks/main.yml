@@ -3,3 +3,11 @@
 
 - include_tasks: webservice.yml
   when: wps_webservice_enabled
+
+- name: Create setup-env.sh script for root user
+  template:
+    src: "setup-env.sh.tmpl"
+    dest: "/root/setup-env.sh"
+    mode: 0644
+    force: no
+

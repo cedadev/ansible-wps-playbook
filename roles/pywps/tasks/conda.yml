@@ -25,7 +25,7 @@
   args:
     chdir: "{{ src_dir }}/{{ item.name }}"
   with_items: "{{ wps_services }}"
-  when: conda_env_use_spec
+  when: conda_env_use_spec and reinstall_conda_envs
   register: conda_env_spec
   tags:
     - pywps

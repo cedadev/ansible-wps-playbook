@@ -1,5 +1,11 @@
 # Changes
 
+## 0.8.0 (CEDA)
+
+Changes:
+
+- using miniforge instead of miniconda
+
 ## 0.7.0 (2024-11-28)
 
 Changes:

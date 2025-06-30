@@ -1,6 +1,5 @@
 ---
 roles:
-  - name: andrewrothstein.miniconda
   - name: geerlingguy.supervisor
   - name: geerlingguy.nginx
   - name: geerlingguy.postgresql
